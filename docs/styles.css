@@ -54,9 +54,16 @@ body{
 
 .content {
   text-align: center;
+  text-shadow: 6px 6px 7px rgba(255,255,255,1);
   /*padding-left: 15px;      /* espacio desde el borde izquierdo */
   /*padding-right: 25px;     /* deja espacio suficiente para la sidebar */
 }
+
+.contenido.arriba-movil {
+    text-align: center;
+    text-shadow: 6px 6px 7px rgba(255,255,255,1);
+    margin-top: -80px;
+  }
 
 h1{font-size:1.5rem;color:var(--brand);}
 h2{font-size:2rem;color:var(--ink);}
@@ -86,7 +93,7 @@ p{font-size:1rem; margin-top:10px;}
   gap:40px;
   justify-content:center;
   flex-wrap:wrap;
-  margin-top:20px;
+  margin-top:10px;
 }
 .gift-grid img{
   width:180px;
@@ -179,7 +186,7 @@ p{font-size:1rem; margin-top:10px;}
 
 /* Banderines en esquina superior derecha */
 .decoracion.banderines {
-  margin-top: 100px;
+  margin-top: 80px;
   top: 0;
   right: 0;
   width: 500px;
@@ -198,11 +205,27 @@ p{font-size:1rem; margin-top:10px;}
 @media(max-width:768px){
   .decoracion.banderines {
     width: 800px; /* más pequeños */
+    margin-top: 30px;
   }
   .decoracion.elefante {
     width: 200px; /* más pequeños */
   }
 }
+
+@media(max-width:768px){
+  .section.active .content .gift-grid .gift-grid img .gift-grid img:hover{
+    transform: translateY(-50px); /* mueve el contenido 50px hacia arriba */
+  }
+}
+
+@media (max-width: 768px) {
+  .contenido.arriba-movil {
+    text-align: center;
+    text-shadow: 6px 6px 7px rgba(255,255,255,1);
+    margin-top: -80px;
+  }
+}
+
 
 
 @keyframes rise {

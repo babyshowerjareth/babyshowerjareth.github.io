@@ -24,14 +24,41 @@ navItems.forEach((item, i) => {
   });
 });
 
-// scroll fluido
+// scroll fluido circular
 window.addEventListener("wheel", (e)=>{
-  if(e.deltaY > 0 && current < sections.length-1){
-    showSection(current+1);
-  } else if(e.deltaY < 0 && current > 0){
-    showSection(current-1);
+  if(e.deltaY > 0){ 
+    // scroll hacia abajo
+    const next = (current + 1) % sections.length; // vuelve al inicio si es el último
+    showSection(next);
+  } else if(e.deltaY < 0){ 
+    // scroll hacia arriba
+    const prev = (current - 1 + sections.length) % sections.length; // vuelve al final si es el primero
+    showSection(prev);
   }
 });
+
+// --- Swipe en celular (circular) ---
+let touchstartY = 0;
+let touchendY = 0;
+
+document.addEventListener('touchstart', e => {
+  touchstartY = e.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', e => {
+  touchendY = e.changedTouches[0].screenY;
+
+  if(touchendY < touchstartY - 50){ 
+    // swipe arriba → siguiente
+    const next = (current + 1) % sections.length;
+    showSection(next);
+  }
+  if(touchendY > touchstartY + 50){ 
+    // swipe abajo → anterior
+    const prev = (current - 1 + sections.length) % sections.length;
+    showSection(prev);
+  }
+}, false);
 
 // --- Countdown ---
 function countdown(){
