@@ -110,3 +110,20 @@ generateBubbles();
 
 // mostrar primera sección
 showSection(0);
+
+// --- Activar música al primer tap/click ---
+function iniciarMusica() {
+    const music = document.getElementById("bg-music");
+    if(music) {
+      music.volume = 0.2;
+        music.play().catch(err => console.log("Audio bloqueado:", err));
+    }
+    // Quitamos los listeners para que no se ejecute otra vez
+    document.removeEventListener("click", iniciarMusica);
+    document.removeEventListener("touchstart", iniciarMusica);
+}
+
+// Escuchar primer click o tap
+document.addEventListener("click", iniciarMusica);
+document.addEventListener("touchstart", iniciarMusica);
+
