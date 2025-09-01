@@ -115,7 +115,7 @@ showSection(0);
 function iniciarMusica() {
     const music = document.getElementById("bg-music");
     if(music) {
-      music.volume = 0.2;
+      //music.volume = 0.2;
         music.play().catch(err => console.log("Audio bloqueado:", err));
     }
     // Quitamos los listeners para que no se ejecute otra vez
@@ -126,4 +126,5 @@ function iniciarMusica() {
 // Escuchar primer click o tap
 document.addEventListener("click", iniciarMusica);
 document.addEventListener("touchstart", iniciarMusica);
+
 
