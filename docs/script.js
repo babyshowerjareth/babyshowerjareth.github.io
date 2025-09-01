@@ -112,7 +112,7 @@ generateBubbles();
 showSection(0);
 
 // --- Activar música al primer tap/click ---
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
       const music = document.getElementById("bg-music");
 
       function iniciarMusica() {
@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.addEventListener("click", iniciarMusica);
       document.addEventListener("touchstart", iniciarMusica);
-    });
+    });*/
+
 
 
