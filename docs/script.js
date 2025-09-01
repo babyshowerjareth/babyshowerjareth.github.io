@@ -114,18 +114,18 @@ showSection(0);
 // --- Activar música al primer tap/click ---
 function iniciarMusica() {
     const music = document.getElementById("bg-music");
-    if(music) {
-      music.volume = 0.2;
-        music.play().catch(err => console.log("Audio bloqueado:", err));
+    if (music && music.paused) {
+        music.play().catch(err => console.log("Audio bloqueado hasta interacción:", err));
     }
-    // Quitamos los listeners para que no se ejecute otra vez
+    // Quitamos los listeners para que no se repita
     document.removeEventListener("click", iniciarMusica);
     document.removeEventListener("touchstart", iniciarMusica);
+    document.removeEventListener("touchmove", iniciarMusica);
 }
 
-// Escuchar primer click o tap
+// Detectar primer tap o swipe en móvil
 document.addEventListener("click", iniciarMusica);
 document.addEventListener("touchstart", iniciarMusica);
-
+document.addEventListener("touchmove", iniciarMusica);
 
 
